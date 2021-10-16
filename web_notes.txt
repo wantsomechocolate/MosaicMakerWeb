@@ -1,3 +1,11 @@
+MosaicMakerWeb Direction
+Try to setup a page to view a specific already created html mosaic. 
+
+
+
+
+
+
 So how do I start making this a web site?
 
 if I right click on an image and do update_all_instances
