@@ -7,11 +7,12 @@ class Tag(models.Model):
 
 
 class Piece(models.Model):
-    img = models.ImageField(upload_to ='pieces/')
+    img = models.ImageField(upload_to ='mosaic/pieces/')
     mode = models.CharField(max_length=20)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
-    tags = models.ManyToManyField('Tag', related_name='pieces')
+    tags = models.ManyToManyField('Tag', related_name='pieces', blank=True)
+
 
 
 class Mosaic(models.Model):
