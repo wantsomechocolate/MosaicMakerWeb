@@ -2,7 +2,8 @@ MosaicMakerWeb Direction
 Try to setup a page to view a specific already created html mosaic. 
 
 
-
+What does the context need to be for the mosaic at the current moment?
+the mosaic object itself can be passed to the template at least for now and I can see if I can use the info in it to generate the mosaic?
 
 
 
