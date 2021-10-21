@@ -35,3 +35,21 @@ new_mosaic.save()
 
 
 ## Now to loop through all the sections in the mosaic and add a record to the section table with a reference to the mosaic and to the piece, then I can build the mosaic in a view!!!!!!!!!
+
+
+from mosaic.models import Section
+
+for i in range(len(master.grid)):
+    for j in range(len(master.grid[i])):
+        section = dict(coordinate_h = master.grid[i][j].coordinates[0],
+                    coordinate_w = master.grid[i][j].coordinates[1],
+                    coordinates = master.grid[i][j].coordinates,
+                    height = master.grid[i][j].height,
+                    width = master.grid[i][j].width,
+                    pinned = False,
+                    priority = 0,
+                    mosaic = new_mosaic,
+                    piece = master.grid[i][j].piece.original_object,)
+
+        new_section = Section(**section)
+        new_section.save()

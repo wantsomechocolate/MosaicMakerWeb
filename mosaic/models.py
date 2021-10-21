@@ -60,8 +60,8 @@ class Mosaic(models.Model):
 
 class Section(models.Model):
 
-	coordinate_x = models.IntegerField()
-	coordinate_y = models.IntegerField()
+	coordinate_w = models.IntegerField()
+	coordinate_h = models.IntegerField()
 
 	## Not sure which one I want to use yet. 
 	coordinates = models.JSONField()
