@@ -3,11 +3,13 @@ Try to setup a page to view a specific already created html mosaic.
 
 Save pieces to the db - done
 Save a mosaic to the db - done
-Save sections to the db - in progress
+Save sections to the db - done
 
-Use the three db tables/views/html to serve a page that shows a mosaic entirely created from the db
+Use the three db tables/views/html to serve a page that shows a mosaic entirely created from the db - done
+
+
+start adding more pieces and assign tags to all existing pieces and figure out how to query by tag
 create page for uploading base images
-start adding more pieces
 create page for creating a mosaic and then saving it, going back to it later, editing it, etc. oh man, that a lot of stuff. 
 
 
