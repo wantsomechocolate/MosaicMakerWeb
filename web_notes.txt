@@ -9,6 +9,14 @@ Use the three db tables/views/html to serve a page that shows a mosaic entirely 
 
 
 start adding more pieces and assign tags to all existing pieces and figure out how to query by tag
+
+
+create a page for adding pieces from web search, start simple, just a field with a query term, 
+Should i have a query table? Any images saved in pieces can be associated with the query they came from?
+Or maybe that doesn't matter? let's say it doesn't matter for now. So the view just accepts a query (or list of queries?) and then fetches the images and puts them in a database, it would be pretty cool to show the images as they came in. That might be a fun experiement. 
+
+
+
 create page for uploading base images
 create page for creating a mosaic and then saving it, going back to it later, editing it, etc. oh man, that a lot of stuff. 
 

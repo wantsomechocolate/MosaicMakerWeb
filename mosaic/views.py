@@ -5,12 +5,13 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 
-from MosaicMaker import mosaic_maker
-from .models import Mosaic,Piece,Section
+from MosaicMaker import mosaic_maker as mm
+from .models import Mosaic,Piece,Section,Tag,Target
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index. Made a change")
+def mosaic_index(request):
+	context = dict()
+	return render(request, "mosaic_detail.html", context)
 
 #def mosaic_view(request, mosaic_name):
 #	return HttpResponse("Hello, you're trying to view: " + mosaic_name)
@@ -24,10 +25,20 @@ def index(request):
 
 def mosaic_detail(request,mosaic_name):
 	
+	from PIL import Image
 
-	mosaic = Mosaic.objects.filter(id=3)[0]
-	mosaic.h_range = range(mosaic.h_sections)
-	mosaic.w_range = range(mosaic.w_sections)
+	mosaic_id = int(mosaic_name)
+	mosaic_record = Mosaic.objects.filter(id = mosaic_id).first()
+
+	target_image = Image.open(mosaic_record.target.img)
+
+	master = mm.Mosaic( target_image, f = mosaic_record.fineness, granularity = mosaic_record.granularity )
+
+	mosaic = mosaic_record #Mosaic.objects.filter(id=3)[0]
+	mosaic.h_sections = master.h_sections
+	mosaic.w_sections = master.w_sections
+	mosaic.h_range = range(master.h_sections)
+	mosaic.w_range = range(master.w_sections)
 	sections = Section.objects.filter(mosaic = mosaic.id)
 
 	pieces = []
@@ -44,7 +55,10 @@ def mosaic_detail(request,mosaic_name):
 
 	pieces_array = [(h,[None for w in range(mosaic.w_sections)]) for h in range(mosaic.h_sections)]
 	for section in sections:
-		pieces_array[section.coordinates[0]][1][section.coordinates[1]] = (section.coordinates[0],section.coordinates[1],section.piece.img.url)
+		try:
+			pieces_array[section.coordinate_h][1][section.coordinate_w] = (section.coordinate_h,section.coordinate_w,section.piece.img.url)
+		except:
+			print(section.h_sections,section.w_sections)
 
 	context = dict(mosaic = mosaic, sections = sections, pieces = pieces, pieces_array = pieces_array)
 

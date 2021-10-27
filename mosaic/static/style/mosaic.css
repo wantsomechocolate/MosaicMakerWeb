@@ -6,14 +6,14 @@ body {background:black;
 	margin:0;
 	border:0;}
 #targetImageContainer{position:absolute;;}
-#targetImageContainer img{width:2100px;}	
+#targetImageContainer img{width:100%;}	
 .imageContainer {overflow:hidden;
 	position:absolute;
 	border:0;
 	margin:0;
 	padding:0;
 	z-index:10;
-	width:2100px;}
+	width:100%;}
 .col img {padding:0px;
 	margin:0px;
 	opacity:1;
