@@ -10,7 +10,9 @@ class Tag(models.Model):
 
 class Piece(models.Model):
 	img = models.ImageField(upload_to ='mosaic/pieces/')
-	mode = models.CharField(max_length=20)
+	## Having second thoughts about saving this guy, 
+	## I can just get it from the img object after I obtain it, the only reason to save it is if I'll ever filter by it, but why would I do that?
+	mode = models.CharField(max_length=20) 
 	created_on = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 	tags = models.ManyToManyField('Tag', related_name='pieces', blank=True)
@@ -26,6 +28,8 @@ class Target(models.Model):
 def rgb_weighting_default():
 	return [1,1,1]
 
+
+## I need to add the comparison function, error function, and reduce function arguments to this model at some point in the phewture
 class Mosaic(models.Model):
 
 	title = models.CharField(max_length=255)
@@ -57,6 +61,10 @@ class Mosaic(models.Model):
 	#		priority: 10,
 	#		height:100,
 	#		width:200,			}
+
+	## I might need to save some stuff about pieces here?
+	# default_save_size = models.JSONField(default = (512,512))
+	# max_instances = models.IntegerField(default = 5)
 
 	opts = models.JSONField(blank = True, null = True)
 

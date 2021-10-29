@@ -1,3 +1,8 @@
+I think I need some way to pre process images before showing them in the detail view so that they are smaller and take less time to load. 
+512x512 is nice to have for zooming, but it's too big for loading the high granularity mosaics. 
+## I also need a way to show different granularity mosaics to be the same size! how does korean guy do it?
+
+
 MosaicMakerWeb Direction
 Try to setup a page to view a specific already created html mosaic. 
 
