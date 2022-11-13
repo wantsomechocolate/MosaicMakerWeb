@@ -1,6 +1,13 @@
 I think I need some way to pre process images before showing them in the detail view so that they are smaller and take less time to load. 
-512x512 is nice to have for zooming, but it's too big for loading the high granularity mosaics. 
-## I also need a way to show different granularity mosaics to be the same size! how does korean guy do it?
+512x512 is nice to have for zooming, but it's too big for loading the mosaics with a lot of sections. 
+I also need a way to show different granularity mosaics to be the same size! how does korean guy do it?
+
+
+Let's try to make a mosaic using the web interface, what do I need first?
+a view to upload and then display an image, in that same view, I need to breakup and save the sections?
+I need to be able to select tags for the pieces 
+Then I need to click a button to let the mosaic actually get created and save the pieces (and I guess update or save the sections)
+and then finally show the resulting mosaic, it would be dope if the mosaic actually filled in pieces as the analysis went but I don't think our analysis does that. 
 
 
 MosaicMakerWeb Direction

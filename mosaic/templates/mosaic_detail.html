@@ -11,23 +11,31 @@
     <link rel="stylesheet" href="{% static 'style/mosaic.css' %}" />
   </head>
   <body>
-    <div id="targetImageContainer">
-      <img src="{% static 'target.png' %}" />
-    </div>
-    <div class="imageContainer">
 
-      {% for k, row in pieces_array %}  
-        <div class="row" id="row-{{k}}">
-      
-          {% for i,j,col in row %}
-            <div class="col" id="cell-{{i}}-{{j}}">
-              <img src="{{col}}" />
-            </div>
-          {% endfor %}
-      
-        </div>
-      {% endfor %} 
+    <h2> Mosaic </h2>
 
-    </div>
+    <div id="mosaicContainer">
+      
+      <!-- <div id="targetImageContainer">
+        <img src="/media/mosaic/targets/BWSmile.png" />
+      </div> -->
+      
+      <div class="imageContainer">
+
+        {% for k, row in pieces_array %}  
+          <div class="row" id="row-{{k}}">
+        
+            {% for i,j,col in row %}
+              <div class="col" id="cell-{{i}}-{{j}}">
+                <img src="{{col}}" />
+              </div>
+            {% endfor %}
+        
+          </div>
+        {% endfor %} 
+      </div>
+
+    </div> 
   </body>
 </html>
+
